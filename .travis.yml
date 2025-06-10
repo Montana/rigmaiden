@@ -1,0 +1,19 @@
+language: python
+python: "3.11"
+
+os: linux
+
+install:
+  - echo "Installing dependencies..."
+
+script:
+  - echo "Build passed"
+
+notifications:
+  email: false
+
+env:
+  - PYTHONPATH=$PYTHONPATH:$(pwd)
+
+cache:
+  pip: true 

@@ -1,0 +1,16 @@
+asyncio>=3.4.3
+psutil>=5.9.0
+cryptography>=41.0.0
+requests>=2.31.0
+typing-extensions>=4.7.0
+pathlib>=1.0.1
+configparser>=5.3.0
+python-dotenv>=1.0.0
+aiofiles>=23.1.0
+aiosqlite>=0.19.0
+pydantic>=2.4.2
+python-magic>=0.4.27
+watchdog>=3.0.0
+pywin32>=306; platform_system=="Windows"
+pyobjc-framework-SystemConfiguration>=9.2; platform_system=="Darwin"
+pyobjc-framework-CoreServices>=9.2; platform_system=="Darwin"
