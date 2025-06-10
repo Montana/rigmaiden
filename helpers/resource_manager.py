@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+from rigmaiden import Rigmaiden
 import os
 import psutil
 import logging
