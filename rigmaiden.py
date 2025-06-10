@@ -46,9 +46,9 @@ import array
 import argparse
 import statistics
 import shlex
-from secure_commands import SecureCommandExecutor, CommandResult
-from resource_manager import ResourceManager, ResourceLimits
-from platform_utils import get_platform_utils, PlatformUtils
+from scripts.secure_commands import SecureCommandExecutor, CommandResult
+from scripts.resource_manager import ResourceManager, ResourceLimits
+from helpers.platform_utils import get_platform_utils, PlatformUtils
 
 CURRENT_PLATFORM = platform.system().upper()
 
@@ -169,8 +169,8 @@ SECURITY_SETTINGS = {
 	'registry_monitoring': True
 }
 
-SETTINGS_FILE = '/etc/usbfstab.ini'
-DEFAULT_LOG_FILE = '/var/log/usbfstab/kills.log'
+SETTINGS_FILE = '/etc/rigmaiden.ini'
+DEFAULT_LOG_FILE = '/var/log/rigmaiden/kills.log'
 
 USERNAME = os.getlogin()
 CELLEBRITE_DB_PATH = f"/Users/{USERNAME}/Library/Application Support/Knowledge/knowledgeC.db"
@@ -179,7 +179,7 @@ logging.basicConfig(
 	level=logging.DEBUG,
 	format='%(asctime)s - %(levelname)s - %(message)s',
 	handlers=[
-		logging.FileHandler('/var/log/usbfstab/usbfstab.log'),
+		logging.FileHandler('/var/log/rigmaiden/rigmaiden.log'),
 		logging.StreamHandler(sys.stdout)
 	]
 )
@@ -649,7 +649,7 @@ class Settings:
 	do_backup: bool = True
 	do_monitor: bool = True
 	do_cleanup: bool = True
-	backup_location: str = '/var/backups/usbfstab'
+	backup_location: str = '/var/backups/rigmaiden'
 	encrypt_backups: bool = True
 	notify_email: bool = True
 	notify_api: bool = True
@@ -1347,7 +1347,7 @@ class RigmaidenProtocol(StingrayProtection):
 		
 		# Initialize key manager with proper error handling
 		try:
-			self.key_manager = KeyManager('usbfstab.ini')
+			self.key_manager = KeyManager('rigmaiden.ini')
 			self.setup_encryption_layers()
 		except Exception as e:
 			logger.error(f"Failed to initialize key manager: {e}")

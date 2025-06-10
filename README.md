@@ -1,128 +1,106 @@
-# USB Forensic Security Tools
+# Rigmaiden 
 
-A comprehensive security suite for monitoring and protecting against unauthorized USB device access, forensic tools, and mouse jiggler software.
+![Rigmaiden](https://github.com/user-attachments/assets/8eaabf61-280e-44f4-9579-5201355fe557)
+
+_Educational Use Only._
+
+# Rigmaiden
+
+Rigmaiden is a secure and efficient system management tool for handling USB devices, network interfaces, and system resources across multiple platforms.
 
 ## Features
 
-- USB Device Monitoring
-  - Real-time USB device detection
-  - Whitelist-based access control
-  - Automatic system shutdown on unauthorized access
-  - Mass storage device blocking
+- **Secure Device Management**
+  - USB device detection and management
+  - Network interface monitoring
+  - Process tracking and control
+  - Resource usage monitoring
 
-- Cellebrite Protection
-  - Database access monitoring
-  - iOS device access blocking
-  - Automatic backup and encryption
-  - Forensic tool detection
+- **Cross-Platform Support**
+  - Windows and Unix-based systems
+  - Platform-specific optimizations
+  - Consistent interface across platforms
 
-- Mouse Jiggler Detection
-  - Process monitoring
-  - Network connection analysis
-  - Port scanning
-  - Automatic blocking of suspicious software
+- **Security Features**
+  - Hardware-backed key generation
+  - Secure command execution
+  - Resource limit enforcement
+  - Memory protection
 
-## Rigmaiden Protocol
+- **Resource Management**
+  - Memory and CPU monitoring
+  - File size restrictions
+  - Process limits
+  - Automatic cleanup
 
-The Rigmaiden Protocol is an advanced security system designed to detect and counter IMSI-catchers (Stingrays) and other cellular surveillance devices. It provides comprehensive protection through multiple layers of detection and countermeasures.
+## Installation
 
-### Key Features
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/rigmaiden.git
+cd rigmaiden
 
-1. **Advanced Detection Methods**
-   - Machine Learning-based anomaly detection using Isolation Forest
-   - Signal fingerprinting and pattern analysis
-   - Frequency hopping detection
-   - Base station behavior analysis
-   - Network parameter monitoring
-   - Traffic pattern analysis
-
-2. **Multi-Layer Protection**
-   - Memory integrity protection
-   - Multi-layer encryption (AES-256-GCM, ChaCha20-Poly1305, XChaCha20-Poly1305)
-   - Geolocation spoofing
-   - Automatic countermeasures on detection
-
-3. **Real-time Monitoring**
-   - Continuous cellular network monitoring
-   - Signal strength analysis
-   - Network parameter tracking
-   - Traffic pattern monitoring
-   - Process and memory monitoring
-
-4. **Countermeasures**
-   - Automatic encryption layer activation
-   - Geolocation spoofing
-   - Airplane mode activation
-   - Network interface control
-   - Memory protection enforcement
-
-### Detection Capabilities
-
-- **Signal Analysis**
-  - Unusual signal strength patterns
-  - Rapid signal strength changes
-  - Suspicious cell IDs and location area codes
-  - Multiple operator changes
-  - Frequency hopping patterns
-
-- **Network Analysis**
-  - Suspicious traffic patterns
-  - Excessive packet traffic
-  - Multiple suspicious connections
-  - Network parameter anomalies
-  - Base station behavior analysis
-
-- **Machine Learning Detection**
-  - Anomaly detection in network behavior
-  - Pattern recognition in cellular parameters
-  - Signal fingerprint matching
-  - Traffic pattern classification
-
-### Security Features
-
-1. **Memory Protection**
-   - Critical memory region protection
-   - Memory integrity verification
-   - Suspicious pattern scanning
-   - Memory access monitoring
-
-2. **Encryption**
-   - Multi-layer encryption system
-   - Automatic key rotation
-   - Secure key storage
-   - Encrypted communication channels
-
-3. **Countermeasures**
-   - Automatic response to threats
-   - Geolocation spoofing
-   - Network interface control
-   - Process termination
-   - System lockdown
-
-### Usage
-
-The Rigmaiden Protocol is automatically integrated into the USB Forensic Security Tools suite. It runs in the background, continuously monitoring for potential threats and applying countermeasures when necessary.
-
-To enable/disable specific features, modify the configuration in `usbfstab.ini`:
-
-```ini
-[Rigmaiden]
-enabled = true
-ml_detection = true
-geolocation_spoofing = true
-force_encryption = true
-countermeasures = true
-check_interval = 2.0
-alert_threshold = 3
+# Install dependencies
+pip install -r requirements.txt
 ```
 
-### Requirements
+## Usage
 
-- Python 3.8 or higher
-- scikit-learn (for ML-based detection)
-- Root/Administrator privileges
-- Cellular modem access
-- Network interface control capabilities
+```python
+from rigmaiden import Rigmaiden
+
+# Initialize the system
+rig = Rigmaiden()
+
+# Start monitoring
+rig.start_monitoring()
+
+# Get system information
+devices = rig.get_usb_devices()
+network_info = rig.get_network_info()
+processes = rig.get_process_info()
+memory_info = rig.get_memory_info()
+```
+
+## Configuration
+
+The system can be configured through environment variables or a configuration file:
+
+```bash
+# Environment variables
+export RIGMAIDEN_MAX_MEMORY=1024  # MB
+export RIGMAIDEN_MAX_CPU=80       # Percentage
+export RIGMAIDEN_MAX_FILES=100    # Number of files
+```
+
+## Security
+
+- All sensitive operations use hardware-backed encryption
+- Command execution is sanitized and validated
+- Resource limits are strictly enforced
+- Memory is protected against unauthorized access
+
+## Requirements
+
+- Python 3.8+
+- Platform-specific requirements:
+  - Windows: TPM 2.0 support
+  - macOS: Secure Enclave support
+  - Linux: TPM 2.0 or hardware security module
+ 
+## The Rigmaiden Protocol 
+
+The Rigmaiden Protocol is a sophisticated security system that protects against cellular surveillance devices (like Stingrays/IMSI-catchers). 
+
+# Rigmaiden Protocol
+
+| Category              | Details | Reason |
+|-----------------------|---------|--------|
+| Detection             | - Monitors cellular network for suspicious patterns<br>- Detects frequency hopping (common with IMSI-catchers/Stingrays)<br>- Analyzes unusual signal strengths and rapid changes<br>- Uses machine learning to detect abnormal network behavior | To identify and flag the presence of surveillance tools like Stingrays before they compromise privacy |
+| Device Protection     | - Enforces memory protection to prevent data extraction<br>- Implements multiple layers of encryption<br>- Monitors and protects critical system processes<br>- Tracks and verifies memory integrity<br>- Scans for suspicious patterns in system memory | To safeguard sensitive data and ensure the operating environment remains uncompromised |
+| Automatic Response    | - Enables airplane mode upon threat detection<br>- Activates geolocation spoofing<br>- Adds additional layers of encryption<br>- Blocks suspicious network connections<br>- Isolates and protects sensitive memory regions | To quickly contain threats and minimize exposure with real-time protective actions |
+| Continuous Monitoring | - Runs in the background silently<br>- Regularly checks cellular network parameters<br>- Analyzes signal patterns and anomalies<br>- Monitors network traffic and system behavior | To maintain constant vigilance without user intervention or disruption |
+| Use Cases             | - Defense against cellular surveillance (e.g., Stingrays, IMSI-catchers)<br>- Prevents unauthorized data extraction from the device<br>- Maintains privacy in sensitive or high-risk situations<br>- Secures devices against advanced persistent threats | Designed for users in high-risk environments who require reliable, autonomous security mechanisms |
 
 ## Requirements
 
@@ -130,28 +108,9 @@ alert_threshold = 3
 - Root/Administrator privileges
 - Linux or macOS system
 
-## Installation
+## The `.ini` file
 
-1. Clone the repository:
-```bash
-git clone https://github.com/Montana/usbfstab.git
-cd usbfstab
-```
-
-2. Run the setup script:
-```bash
-sudo ./setup.sh
-```
-
-This will:
-- Install required dependencies
-- Create necessary directories
-- Set up system services
-- Configure logging
-
-## Configuration
-
-The main configuration file is `usbfstab.ini`. Key settings include:
+The main configuration file is `rigmaiden.ini`. Key settings include:
 
 ```ini
 [General]
@@ -185,29 +144,29 @@ The service will start automatically after installation. To manually control:
 
 Linux:
 ```bash
-sudo systemctl start usbfstab
-sudo systemctl stop usbfstab
-sudo systemctl status usbfstab
+sudo systemctl start rigmaiden
+sudo systemctl stop rigmaiden
+sudo systemctl status rigmaiden
 ```
 
 macOS:
 ```bash
-launchctl load ~/Library/LaunchAgents/com.usbfstab.plist
-launchctl unload ~/Library/LaunchAgents/com.usbfstab.plist
+launchctl load ~/Library/LaunchAgents/com.rigmaiden.plist
+launchctl unload ~/Library/LaunchAgents/com.rigmaiden.plist
 ```
 
 ### Running Individual Tools
 
 ```bash
-python3 usbfstab.py    # USB monitoring
+python3 rigmaiden.py    # USB monitoring
 python3 cellebrite.py  # Cellebrite protection
 python3 jiggler_block.py # Jiggler detection
 ```
 
 ## Logging
 
-Logs are stored in `/var/log/usbfstab/`:
-- `usbfstab.log`: Main application log
+Logs are stored in `/var/log/rigmaiden/`:
+- `rigmaiden.log`: Main application log
 - `error.log`: Error messages
 - `output.log`: Standard output
 
@@ -229,24 +188,7 @@ Logs are stored in `/var/log/usbfstab/`:
    - Network analysis
    - Port scanning
    - Automatic blocking
+     
+## Author
 
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Support
-
-For issues and feature requests, please use the GitHub issue tracker.
-
-## Disclaimer
-
-This tool is designed for security purposes. Use responsibly and in accordance with applicable laws and regulations.
-
+Michael Mendy (c) 2025.

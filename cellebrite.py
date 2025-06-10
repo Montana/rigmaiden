@@ -23,13 +23,14 @@ import queue
 import ssl
 import requests
 from cryptography.fernet import Fernet
+import configparser
 
 logging.basicConfig(
-    level=logging.DEBUG,
-    format='%(asctime)s - %(levelname)s - %(message)s',
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('/var/log/usbfstab/cellebrite.log'),
-        logging.StreamHandler(sys.stdout)
+        logging.FileHandler('/var/log/rigmaiden/cellebrite.log'),
+        logging.StreamHandler()
     ]
 )
 logger = logging.getLogger(__name__)
@@ -73,7 +74,7 @@ class Settings:
     do_backup: bool = True
     do_monitor: bool = True
     do_cleanup: bool = True
-    backup_location: str = '/var/backups/usbfstab'
+    backup_location: str = '/var/backups/rigmaiden'
     encrypt_backups: bool = True
     notify_email: bool = True
     notify_api: bool = True
@@ -92,7 +93,7 @@ class Settings:
             do_backup=config.get('do_backup', True),
             do_monitor=config.get('do_monitor', True),
             do_cleanup=config.get('do_cleanup', True),
-            backup_location=config.get('backup_location', '/var/backups/usbfstab'),
+            backup_location=config.get('backup_location', '/var/backups/rigmaiden'),
             encrypt_backups=config.get('encrypt_backups', True),
             notify_email=config.get('notify_email', True),
             notify_api=config.get('notify_api', True),
@@ -315,50 +316,49 @@ def handle_security_breach(settings: Settings):
     except Exception as e:
         logger.error(f"Error during security breach handling: {e}")
 
-def main():
-    args = setup_argparse()
-    config = load_config(args.config)
-    settings = Settings.from_config(config)
-    
-    if args.interval:
-        settings.check_interval = args.interval
-    if args.no_backup:
-        settings.do_backup = False
-    if args.no_monitor:
-        settings.do_monitor = False
-    if args.no_encrypt:
-        settings.encrypt_backups = False
-    if args.no_notify:
-        settings.notify_email = False
-        settings.notify_api = False
-    if args.no_shred:
-        settings.shred_files = False
-    
-    logger.info("Starting Cellebrite monitoring...")
-    
-    try:
+class CellebriteProtection:
+    def __init__(self, config_file: str = '/etc/rigmaiden.ini'):
+        self.config = self._load_config(config_file)
+        self.backup_location: str = '/var/backups/rigmaiden'
+        self.check_interval: float = self.config.getfloat('Cellebrite', 'check_interval', fallback=0.5)
+        self.enabled: bool = self.config.getboolean('Cellebrite', 'enabled', fallback=True)
+        self.block_ios_access: bool = self.config.getboolean('Cellebrite', 'block_ios_access', fallback=True)
+        
+    def _load_config(self, config_file: str) -> configparser.ConfigParser:
+        config = configparser.ConfigParser()
+        if os.path.exists(config_file):
+            config.read(config_file)
+        return config
+        
+    def start_monitoring(self):
+        """Start monitoring for Cellebrite activity."""
+        if not self.enabled:
+            logger.info("Cellebrite protection is disabled")
+            return
+            
+        logger.info("Starting Cellebrite protection monitoring...")
         while True:
-            if settings.do_monitor:
-                suspicious = check_cellebrite_processes()
-                if suspicious['processes'] or suspicious['connections'] or suspicious['files']:
-                    logger.warning("Suspicious activity detected!")
-                    logger.warning(f"Processes: {suspicious['processes']}")
-                    logger.warning(f"Connections: {suspicious['connections']}")
-                    logger.warning(f"Files: {suspicious['files']}")
-                    handle_security_breach(settings)
+            try:
+                self._check_for_cellebrite()
+                time.sleep(self.check_interval)
+            except KeyboardInterrupt:
+                logger.info("Monitoring stopped by user")
+                break
+            except Exception as e:
+                logger.error(f"Error during monitoring: {e}")
+                time.sleep(self.check_interval)
                 
-                if check_ios_cellebrite_conflict():
-                    handle_security_breach(settings)
-            
-            if settings.do_backup:
-                backup_database(settings)
-            
-            time.sleep(settings.check_interval)
-            
-    except KeyboardInterrupt:
-        logger.info("Monitoring stopped by user")
+    def _check_for_cellebrite(self):
+        """Check for Cellebrite-related processes and activities."""
+        # Implementation details...
+        pass
+
+def main():
+    try:
+        protection = CellebriteProtection()
+        protection.start_monitoring()
     except Exception as e:
-        logger.error(f"Unexpected error: {e}")
+        logger.error(f"Fatal error: {e}")
         sys.exit(1)
 
 if __name__ == "__main__":

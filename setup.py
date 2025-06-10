@@ -6,14 +6,14 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setup(
-    name="usbfstab",
+    name="rigmaiden",
     version="1.0.0",
-    author="Montana",
-    author_email="montana@linux.com",
-    description="Anti-forensic kill-switch that monitors USB ports and shuts down on changes",
+    author="Michael Mendy",
+    author_email="your.email@example.com",
+    description="A secure system management tool",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/Montana/usbfstab",
+    url="https://github.com/yourusername/rigmaiden",
     packages=find_packages(),
     classifiers=[
         "Development Status :: 5 - Production/Stable",
@@ -31,19 +31,21 @@ setup(
         "Topic :: Security",
         "Topic :: System :: Systems Administration",
     ],
-    python_requires=">=3.7",
+    python_requires=">=3.8",
     install_requires=[
-        "typing-extensions>=4.0.0",
-        "asyncio>=3.4.3",
+        "psutil>=5.8.0",
+        "cryptography>=3.4.0",
+        "requests>=2.26.0",
+        "python-dotenv>=0.19.0",
     ],
     entry_points={
         "console_scripts": [
-            "usbfstab=usbfstab.usbfstab:main",
+            "rigmaiden=rigmaiden.rigmaiden:main",
         ],
     },
     data_files=[
-        ("/etc", ["install/usbfstab.ini"]),
-        ("/usr/local/bin", ["install/usbfstab"]),
+        ("/etc", ["install/rigmaiden.ini"]),
+        ("/usr/local/bin", ["install/rigmaiden"]),
     ],
     include_package_data=True,
     zip_safe=False,

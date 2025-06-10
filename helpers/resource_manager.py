@@ -120,7 +120,7 @@ class ResourceManager:
                 logger.error(f"Resource monitoring failed: {e}")
                 await asyncio.sleep(interval)
                 
-    def create_temp_file(self, prefix: str = 'usbfstab_', suffix: str = '.tmp') -> str:
+    def create_temp_file(self, prefix: str = 'rigmaiden_', suffix: str = '.tmp') -> str:
         """Create a temporary file with proper cleanup."""
         try:
             fd, path = tempfile.mkstemp(prefix=prefix, suffix=suffix)
