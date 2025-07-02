@@ -10,7 +10,7 @@ Rigmaiden is a secure and efficient system management tool for handling USB devi
 
 ## How It Works 
 
-![Untitled (12)](https://github.com/user-attachments/assets/c064731b-0883-475c-8a87-079b8cd3b91b)
+![Untitled (13)](https://github.com/user-attachments/assets/e9dc240d-6133-44ca-b4e1-a05236d88b24)
 
 ## Features
 
