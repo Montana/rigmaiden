@@ -8,6 +8,10 @@ _Educational Use Only._
 
 Rigmaiden is a secure and efficient system management tool for handling USB devices, network interfaces, and system resources across multiple platforms.
 
+## How It Works 
+
+![Untitled (11)](https://github.com/user-attachments/assets/3e20757c-9593-43ca-9c15-e3106e7bd6c3)
+
 ## Features
 
 - **Secure Device Management**
