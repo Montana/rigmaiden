@@ -1,4 +1,4 @@
-# Rigmaiden 
+# Rigmaiden (For Educational Use Only) 
 
 ![Rigmaiden](https://github.com/user-attachments/assets/8eaabf61-280e-44f4-9579-5201355fe557)
 
