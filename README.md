@@ -41,7 +41,7 @@ Rigmaiden is a secure and efficient system management tool for handling USB devi
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/rigmaiden.git
+git clone https://github.com/montana/rigmaiden.git
 cd rigmaiden
 
 # Install dependencies
