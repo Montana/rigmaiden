@@ -1,3 +1,11 @@
 language: python
-script: echo "project rigmaiden" 
-install: skip
+python:
+  - "3.12"
+script: cat setup.sh 
+
+install:
+  - skip
+
+branches:
+  only:
+    - master
