@@ -1,11 +1,3 @@
-language: python
-python:
-  - "3.12"
+language: shell
 script: cat setup.sh 
-
-install:
-  - skip
-
-branches:
-  only:
-    - master
+install: skip
