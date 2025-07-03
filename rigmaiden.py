@@ -1,10 +1,3 @@
-"""Rigmaiden - Advanced Security Monitoring and Protection Tool.
-
-This module provides comprehensive protection against various security threats
-including USB-based attacks, cellular surveillance, cache exploitation,
-and database carving tools.
-"""
-
 from __future__ import annotations
 
 import argparse
