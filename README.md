@@ -229,4 +229,4 @@ Logs are stored in `/var/log/rigmaiden/`:
      
 ## Author
 
-Michael Mendy (c) 2025.
+Michael Mendy (c) 2025. **Educational Purposes Only**.
