@@ -98,13 +98,91 @@ The Rigmaiden Protocol is a sophisticated security system that protects against 
 
 # Rigmaiden Protocol
 
+## Features
+
+- Cellular surveillance detection
+  - Signal pattern analysis
+  - Frequency hopping detection
+  - IMSI catcher detection
+  - Base station fingerprinting
+- USB device monitoring
+  - Cross-platform support (Linux, macOS, Windows)
+  - Suspicious device detection
+  - Automatic protection measures
+- Resource management
+  - Memory usage monitoring
+  - CPU usage limits
+  - Disk space management
+  - Process control
+- Security features
+  - Secure command execution
+  - Key management and rotation
+  - Encrypted backups
+  - Memory protection
+- Fuzzy Model Protection
+  - Database carving detection and prevention
+  - Communications data extraction monitoring
+  - User information and location data protection
+  - Manual examination tool detection
+  - Automatic quarantine of suspicious carved files
+  - Directory clearing to prevent data exfiltration
+- CFURL Cache Protection
+  - WebKit cache exploitation monitoring
+  - Safari cache directory protection
+  - Suspicious cache process detection
+  - Network activity monitoring for cache attacks
+  - Registry and plist file monitoring
+  - Encrypted quarantine of suspicious cache data
+
+->
+
+## Features
+
+- Cellular surveillance detection
+  - Signal pattern analysis
+  - Frequency hopping detection
+  - IMSI catcher detection
+  - Base station fingerprinting
+- USB device monitoring
+  - Cross-platform support (Linux, macOS, Windows)
+  - Suspicious device detection
+  - Automatic protection measures
+- Resource management
+  - Memory usage monitoring
+  - CPU usage limits
+  - Disk space management
+  - Process control
+- Security features
+  - Secure command execution
+  - Key management and rotation
+  - Encrypted backups
+  - Memory protection
+- Fuzzy Model Protection
+  - Database carving detection and prevention
+  - Communications data extraction monitoring
+  - User information and location data protection
+  - Manual examination tool detection
+  - Automatic quarantine of suspicious carved files
+  - Directory clearing to prevent data exfiltration
+- CFURL Cache Protection
+  - WebKit cache exploitation monitoring
+  - Safari cache directory protection
+  - Suspicious cache process detection
+  - Network activity monitoring for cache attacks
+  - Registry and plist file monitoring
+  - Encrypted quarantine of suspicious cache data
+
+## Rigmaiden Protocol Protection Matrix
+
 | Category              | Details | Reason |
 |-----------------------|---------|--------|
 | Detection             | - Monitors cellular network for suspicious patterns<br>- Detects frequency hopping (common with IMSI-catchers/Stingrays)<br>- Analyzes unusual signal strengths and rapid changes<br>- Uses machine learning to detect abnormal network behavior | To identify and flag the presence of surveillance tools like Stingrays before they compromise privacy |
 | Device Protection     | - Enforces memory protection to prevent data extraction<br>- Implements multiple layers of encryption<br>- Monitors and protects critical system processes<br>- Tracks and verifies memory integrity<br>- Scans for suspicious patterns in system memory | To safeguard sensitive data and ensure the operating environment remains uncompromised |
 | Automatic Response    | - Enables airplane mode upon threat detection<br>- Activates geolocation spoofing<br>- Adds additional layers of encryption<br>- Blocks suspicious network connections<br>- Isolates and protects sensitive memory regions | To quickly contain threats and minimize exposure with real-time protective actions |
 | Continuous Monitoring | - Runs in the background silently<br>- Regularly checks cellular network parameters<br>- Analyzes signal patterns and anomalies<br>- Monitors network traffic and system behavior | To maintain constant vigilance without user intervention or disruption |
-| Use Cases             | - Defense against cellular surveillance (e.g., Stingrays, IMSI-catchers)<br>- Prevents unauthorized data extraction from the device<br>- Maintains privacy in sensitive or high-risk situations<br>- Secures devices against advanced persistent threats | Designed for users in high-risk environments who require reliable, autonomous security mechanisms |
+| Fuzzy Model Protection | - Scans for database carving tools and suspicious directories<br>- Monitors processes for communications data extraction<br>- Detects user information and location data carving attempts<br>- Identifies manual examination and parsing tools<br>- Automatically quarantines carved files with encryption<br>- Clears suspicious directories to prevent data exfiltration | To prevent unauthorized extraction of sensitive communications, user data, and location information through database carving techniques |
+| CFURL Cache Protection | - Monitors WebKit cache directories for exploitation attempts<br>- Detects suspicious cache-related processes and network activity<br>- Scans registry and plist files for cache manipulation<br>- Protects Safari cache from unauthorized access<br>- Encrypts and quarantines suspicious cache data<br>- Prevents cache-based data extraction attacks | To protect against WebKit cache exploitation and prevent unauthorized access to cached sensitive data |
+| Use Cases             | - Educational Only, but if it were theoretically in practice, defense against cellular surveillance (e.g., Stingrays, IMSI-catchers)<br>- Prevents unauthorized data extraction from the device<br>- Maintains privacy in sensitive or high-risk situations<br>- Secures devices against advanced persistent threats<br>- Protects against database carving and cache exploitation | Designed for users in high-risk environments who require reliable, autonomous security mechanisms |
 
 ## Requirements
 
