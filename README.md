@@ -172,7 +172,7 @@ The Rigmaiden Protocol is a sophisticated security system that protects against 
   - Registry and plist file monitoring
   - Encrypted quarantine of suspicious cache data
 
-## Rigmaiden Protocol Protection Matrix
+## The Rigmaiden Protocol
 
 | Category              | Details | Reason |
 |-----------------------|---------|--------|
