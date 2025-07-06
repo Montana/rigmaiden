@@ -1,6 +1,6 @@
 # Rigmaiden (For Educational Use Only) 
 
-![Rigmaiden](https://github.com/user-attachments/assets/8eaabf61-280e-44f4-9579-5201355fe557)
+![Rigmaiden](https://freight.cargo.site/t/original/i/T2438503549000552213986019943579/Heading-12.png)
 
 _Educational Use Only._
 
