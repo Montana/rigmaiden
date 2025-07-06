@@ -4,7 +4,7 @@ import time
 import os
 
 NGROK_PATH = 'ngrok'  
-NGROK_API_URL = 'http://127.0.0.1:4040/api/tunnels'
+NGROK_API_URL = 'http://127.0.0.1:4040/api/tunnels' # can pipe to personal xmonad windows
 _ngrok_process = None
 
 def start_ngrok(port):
