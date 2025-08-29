@@ -43,11 +43,8 @@ michael@rigmaiden.sh
 ## Installation
 
 ```bash
-# Clone the repository
 git clone https://github.com/montana/rigmaiden.git
 cd rigmaiden
-
-# Install dependencies
 pip install -r requirements.txt
 ```
 
@@ -56,13 +53,10 @@ pip install -r requirements.txt
 ```python
 from rigmaiden import Rigmaiden
 
-# Initialize the system
 rig = Rigmaiden()
 
-# Start monitoring
 rig.start_monitoring()
 
-# Get system information
 devices = rig.get_usb_devices()
 network_info = rig.get_network_info()
 processes = rig.get_process_info()
@@ -74,7 +68,6 @@ memory_info = rig.get_memory_info()
 The system can be configured through environment variables or a configuration file:
 
 ```bash
-# Environment variables
 export RIGMAIDEN_MAX_MEMORY=1024  # MB
 export RIGMAIDEN_MAX_CPU=80       # Percentage
 export RIGMAIDEN_MAX_FILES=100    # Number of files
