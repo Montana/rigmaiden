@@ -6,7 +6,7 @@ _Educational Use Only._
 
 # Rigmaiden
 
-Rigmaiden is a secure and efficient system management tool for handling USB devices, network interfaces, and system resources across multiple platforms.
+Rigmaiden is a secure and efficient system management tool for handling USB devices, network interfaces, and system resources across multiple platforms. Rigmaiden is named after **Daniel David Rigmaiden**. 
 
 ## Contact
 michael@rigmaiden.sh 
