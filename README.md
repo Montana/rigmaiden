@@ -192,9 +192,9 @@ launchctl unload ~/Library/LaunchAgents/com.rigmaiden.plist
 ### Running Individual Tools
 
 ```bash
-python3 rigmaiden.py    # USB monitoring
-python3 cellebrite.py  # Cellebrite protection
-python3 jiggler_block.py # Jiggler detection
+python3 rigmaiden.py   
+python3 cellebrite.py  
+python3 jiggler_block.py 
 ```
 
 ## Logging
