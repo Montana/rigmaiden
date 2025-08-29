@@ -68,9 +68,9 @@ memory_info = rig.get_memory_info()
 The system can be configured through environment variables or a configuration file:
 
 ```bash
-export RIGMAIDEN_MAX_MEMORY=1024  # MB
-export RIGMAIDEN_MAX_CPU=80       # Percentage
-export RIGMAIDEN_MAX_FILES=100    # Number of files
+export RIGMAIDEN_MAX_MEMORY=1024  
+export RIGMAIDEN_MAX_CPU=80       
+export RIGMAIDEN_MAX_FILES=100    
 ```
 
 ## Security
